@@ -13,6 +13,9 @@
         h1, h2 {
             color: #333;
         }
+        .section {
+            margin-bottom: 40px;
+        }
         .project-list {
             list-style-type: none;
             padding: 0;
@@ -32,6 +35,14 @@
         .project-list a:hover {
             text-decoration: underline;
         }
+        ul.skills {
+            list-style: square;
+            padding-left: 20px;
+        }
+        .contact a {
+            text-decoration: none;
+            color: #0366d6;
+        }
     </style>
 </head>
 <body>
@@ -39,21 +50,54 @@
     <h1>Vinay Babu Gorantla</h1>
     <p>Welcome to my portfolio! Here you can find links to my end-to-end MLOps projects.</p>
 
-    <h2>My Projects</h2>
-    <ul class="project-list">
-        <li>
-            <a href="https://github.com/VinayBabuGorantla/Breast-Cancer-Prediction-Wisconsin-Dataset" target="_blank">
-                Breast Cancer Prediction (Wisconsin Dataset)
-            </a>
-            <p>An end-to-end MLOps project that predicts whether breast cancer is benign or malignant using various ML tools and deployment best practices.</p>
-        </li>
-        <li>
-            <a href="https://github.com/VinayBabuGorantla/Boston-Housing-Dataset" target="_blank">
-                Boston Housing Price Prediction
-            </a>
-            <p>A complete regression pipeline for predicting housing prices using MLOps principles such as modular programming, version control, and pipeline automation.</p>
-        </li>
-    </ul>
+    <div class="section" id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate MLOps Engineer and Machine Learning Engineer with a strong foundation in developing and deploying scalable machine learning models. 
+            My experience spans across model training, statistical analysis, deep learning, natural language processing, and full MLOps lifecycles using tools like Docker, Flask, and Streamlit. 
+            I enjoy solving real-world business problems through data and AI, with a strong emphasis on interpretability and automation.
+        </p>
+    </div>
+
+    <div class="section" id="projects">
+        <h2>My Projects</h2>
+        <ul class="project-list">
+            <li>
+                <a href="https://github.com/VinayBabuGorantla/Breast-Cancer-Prediction-Wisconsin-Dataset" target="_blank">
+                    Breast Cancer Prediction (Wisconsin Dataset)
+                </a>
+                <p>An end-to-end MLOps project that predicts whether breast cancer is benign or malignant using various ML tools and deployment best practices.</p>
+            </li>
+            <li>
+                <a href="https://github.com/VinayBabuGorantla/Boston-Housing-Dataset" target="_blank">
+                    Boston Housing Price Prediction
+                </a>
+                <p>A complete regression pipeline for predicting housing prices using MLOps principles such as modular programming, version control, and pipeline automation.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section" id="skills">
+        <h2>Skills</h2>
+        <ul class="skills">
+            <li><strong>Languages & Tools:</strong> Python, SQL, T-SQL, DAX, Git, Docker, Kubernetes</li>
+            <li><strong>Machine Learning:</strong> Scikit-learn, TensorFlow, Keras, XGBoost, LightGBM</li>
+            <li><strong>Deep Learning:</strong> ANN, CNN, RNN, LSTM, Transformers</li>
+            <li><strong>NLP:</strong> NLTK, spaCy, Word Embeddings</li>
+            <li><strong>MLOps:</strong> Flask, Streamlit, CI/CD, MLflow, DVC</li>
+            <li><strong>Visualization:</strong> Matplotlib, Seaborn, Power BI</li>
+            <li><strong>Cloud Platforms:</strong> Azure ML Studio, Azure Data Factory, Synapse, Databricks, Data Lake Storage</li>
+        </ul>
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:Vinayc.gorantla@gmail.com">Vinayc.gorantla@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/vinay-babu-gorantla-2564a84a/" target="_blank">Vinay Babu Gorantla</a></p>
+        <p>GitHub: <a href="https://github.com/VinayBabuGorantla" target="_blank">VinayBabuGorantla</a></p>
+        <p>Phone: +44-7780310625</p>
+        <p><a href="/Vinay_MLOpsEngineer_Resume.pdf" download>Download My Resume (PDF)</a></p>
+    </div>
 
 </body>
 </html>
