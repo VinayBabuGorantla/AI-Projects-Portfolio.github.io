@@ -16,6 +16,7 @@
             padding: 15px;
             display: flex;
             justify-content: center;
+            position: relative;
         }
 
         nav a {
@@ -28,6 +29,38 @@
 
         nav a:hover {
             text-decoration: underline;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #0366d6;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px 0;
+            list-style-type: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
         }
 
         .section {
@@ -53,7 +86,7 @@
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .project-list a {
@@ -101,7 +134,13 @@
 
     <nav>
         <a onclick="showTab('home')">Home</a>
-        <a onclick="showTab('projects')">Projects</a>
+        <div class="dropdown">
+            <a href="javascript:void(0)">Projects</a>
+            <div class="dropdown-content">
+                <a href="javascript:void(0)" onclick="showTab('mlops')">MLOps</a>
+                <a href="javascript:void(0)" onclick="showTab('generativeAI')">Generative AI</a>
+            </div>
+        </div>
         <a onclick="showTab('about')">About</a>
     </nav>
 
@@ -115,8 +154,8 @@
         I am currently open to opportunities across the data spectrum—from Data Analyst roles to AI Engineer positions.</p>
     </div>
 
-    <div id="projects" class="section">
-        <h2>My Projects</h2>
+    <div id="mlops" class="section">
+        <h2>MLOps Projects</h2>
         <ul class="project-list">
             <li>
                 <a href="https://github.com/VinayBabuGorantla/Electric-Power-Consumption" target="_blank">
@@ -147,6 +186,18 @@
                     Iris Species Classification
                 </a>
                 <p>A machine learning classification project using Scikit-learn for predicting iris flower species, with modular code and deployment-ready pipeline.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div id="generativeAI" class="section">
+        <h2>Generative AI Projects</h2>
+        <ul class="project-list">
+            <li>
+                <a href="https://github.com/VinayBabuGorantla/PDF-Genie" target="_blank">
+                    PDF Genie - Generative AI for Document Ingestion
+                </a>
+                <p>An innovative project that uses Generative AI for processing and extracting information from PDFs. Check out the repo for more details.</p>
             </li>
         </ul>
     </div>
