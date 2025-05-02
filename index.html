@@ -31,7 +31,6 @@
             text-decoration: underline;
         }
 
-        /* Dropdown container */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -123,6 +122,24 @@
             font-size: 18px;
             color: #444;
         }
+
+        /* Scrollable side-by-side layout */
+        .scrollable-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .scrollable-container .column {
+            width: 45%;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .column h3 {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
@@ -146,12 +163,47 @@
 
     <div id="home" class="section active">
         <h2>Home</h2>
-        <p>I am a passionate MLOps Engineer and Machine Learning Engineer with a strong foundation in developing and deploying scalable machine learning models. 
-        My experience spans across model training, statistical analysis, deep learning, natural language processing, and full MLOps lifecycles using tools like Docker, Flask, and Streamlit. 
-        I enjoy solving real-world business problems through data and AI, with a strong emphasis on interpretability and automation.</p>
+        <p>I am a passionate <strong>Machine Learning Engineer</strong> with strong <strong>MLOps expertise</strong>, actively building innovative <strong>Generative AI applications</strong> using cutting-edge LLM frameworks.</p>
+        <p>With hands-on experience in deploying scalable ML pipelines and exploring the power of <strong>Large Language Models (LLMs)</strong>, I specialize in solving real-world problems through automation, data-driven intelligence, and conversational AI.</p>
         
-        <p>I am proficient in Exploratory Data Analysis (EDA), Statistical Data Analysis, Data Cleaning and Preprocessing, Data Transformation, Data Wrangling, and Model Training. 
-        I am currently open to opportunities across the data spectrum—from Data Analyst roles to AI Engineer positions.</p>
+        <!-- Scrollable container for Generative AI and Traditional ML sections -->
+        <div class="scrollable-container">
+            <!-- Generative AI column -->
+            <div class="column">
+                <h3>🤖 Generative AI & LLM Development Lifecycle</h3>
+                <p>I design and build end-to-end Generative AI applications using large language models and modern frameworks. Here's an overview of how I approach Generative AI projects:</p>
+                <ul class="project-list">
+                    <li><strong>Problem Scoping & Use Case Design:</strong> Identified suitable LLM-based solutions for document summarization, Q&A, chatbot interfaces, and log analysis.</li>
+                    <li><strong>Data Ingestion & Chunking:</strong> Extracted and chunked text from various sources like PDFs, text files, and logs using LangChain loaders and custom scripts.</li>
+                    <li><strong>Embedding & Vector Store Management:</strong> Converted text to embeddings using OpenAI/Hugging Face models and stored them in vector DBs like FAISS or Chroma for semantic retrieval.</li>
+                    <li><strong>Prompt Engineering & Templates:</strong> Designed and iterated prompts for accuracy, relevance, and safety using LangChain prompt templates and chains.</li>
+                    <li><strong>LLM Orchestration:</strong> Integrated external and open-source models (e.g., OpenAI, LLaMA) using LangChain, Hugging Face, and Transformers libraries.</li>
+                    <li><strong>RAG (Retrieval-Augmented Generation):</strong> Built robust RAG pipelines to combine user input with context from knowledge bases before sending to the LLM.</li>
+                    <li><strong>Tool & Agent Integration:</strong> Enabled agents with tools for dynamic response generation, document analysis, and multi-step reasoning.</li>
+                    <li><strong>App Interface Development:</strong> Built Streamlit and Flask-based frontends for user-friendly interaction with AI systems.</li>
+                    <li><strong>Deployment & Optimization:</strong> Packaged apps with Docker and deployed them on cloud platforms or local environments with GPU acceleration.</li>
+                    <li><strong>Security & Cost Control:</strong> Implemented API key management, usage limits, and fallback mechanisms to control LLM cost and reliability.</li>
+                </ul>
+            </div>
+
+            <!-- Traditional ML/MLOps column -->
+            <div class="column">
+                <h3>🧠 Traditional ML/MLOps Lifecycle</h3>
+                <p>I specialize in all stages of the MLOps pipeline, from data collection and preprocessing to model deployment and monitoring. Here’s an overview of my approach:</p>
+                <ul class="project-list">
+                    <li><strong>Data Collection & Acquisition:</strong> Sourced data from APIs, databases, cloud storage, and web scraping.</li>
+                    <li><strong>Data Cleaning & Preprocessing:</strong> Addressed missing values, outliers, and inconsistencies while scaling and encoding features.</li>
+                    <li><strong>Exploratory Data Analysis (EDA):</strong> Analyzed distributions and relationships using Pandas, Seaborn, and Matplotlib.</li>
+                    <li><strong>Feature Engineering:</strong> Created impactful features and applied dimensionality reduction techniques.</li>
+                    <li><strong>Model Building & Training:</strong> Trained ML models using Scikit-learn, XGBoost, TensorFlow, and Keras.</li>
+                    <li><strong>Model Deployment & Integration:</strong> Deployed models using FastAPI, Docker, and cloud platforms with CI/CD integration.</li>
+                    <li><strong>Model Monitoring & Maintenance:</strong> Monitored performance and implemented auto-retraining mechanisms.</li>
+                    <li><strong>Reporting & Dashboarding:</strong> Built interactive dashboards using Power BI, Plotly, and Streamlit.</li>
+                    <li><strong>Collaboration & Documentation:</strong> Led agile meetings and ensured code maintainability through thorough documentation.</li>
+                    <li><strong>Continuous Learning & Research:</strong> Regularly explore new ML and AI research to stay at the forefront of the field.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div id="mlops" class="section">
@@ -191,13 +243,20 @@
     </div>
 
     <div id="generativeAI" class="section">
-        <h2>Generative AI Projects</h2>
+        <h2>Generative AI & LLM Projects</h2>
+        <p>Exploring Generative AI using LangChain components, OpenAI models, and models from Hugging Face hub.</p>
         <ul class="project-list">
             <li>
                 <a href="https://github.com/VinayBabuGorantla/PDF-Genie" target="_blank">
                     PDF Genie - Generative AI for Document Ingestion
                 </a>
                 <p>An innovative project that uses Generative AI for processing and extracting information from PDFs. Check out the repo for more details.</p>
+            </li>
+            <li>
+                <a href="https://github.com/VinayBabuGorantla/Log-Intel" target="_blank">
+                    Log Intel - Log File Analysis & Prediction
+                </a>
+                <p>An advanced log analysis platform using LLM, which parses logs and provides performance insights, error detection, and proactive issue prediction.</p>
             </li>
         </ul>
     </div>
@@ -215,18 +274,15 @@
         </ul>
 
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:Vinayc.gorantla@gmail.com">Vinayc.gorantla@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/vinay-babu-gorantla-2564a84a/" target="_blank">Vinay Babu Gorantla</a></p>
-        <p>GitHub: <a href="https://github.com/VinayBabuGorantla" target="_blank">VinayBabuGorantla</a></p>
-        <p>Phone: +44-7780310625</p>
-        <p><a href="/Vinay_MLOpsEngineer_Resume.pdf" download>Download My Resume (PDF)</a></p>
+        <p>If you would like to get in touch, feel free to <a href="mailto:vinaybabu.gorantla@gmail.com">email me</a>.</p>
     </div>
 
     <script>
         function showTab(tabId) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => section.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
         }
     </script>
 
