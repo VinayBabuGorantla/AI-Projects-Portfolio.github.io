@@ -1,292 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinay Babu Gorantla - Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-
-        nav {
-            background-color: #0366d6;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #0366d6;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            padding: 10px 0;
-            list-style-type: none;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #575757;
-        }
-
-        .section {
-            display: none;
-            padding: 40px;
-        }
-
-        .active {
-            display: block;
-        }
-
-        h1, h2 {
-            color: #333;
-        }
-
-        .project-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .project-list li {
-            margin-bottom: 20px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-list a {
-            text-decoration: none;
-            color: #0366d6;
-            font-weight: bold;
-        }
-
-        .project-list a:hover {
-            text-decoration: underline;
-        }
-
-        ul.skills {
-            list-style: square;
-            padding-left: 20px;
-        }
-
-        .contact a {
-            text-decoration: none;
-            color: #0366d6;
-        }
-
-        .header {
-            padding: 40px;
-            text-align: center;
-            background-color: #e3e3e3;
-        }
-
-        .header h1 {
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 18px;
-            color: #444;
-        }
-
-        /* Scrollable side-by-side layout */
-        .scrollable-container {
-            display: flex;
-            overflow-x: auto;
-            padding: 20px;
-            gap: 40px;
-        }
-
-        .scrollable-container .column {
-            width: 45%;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .column h3 {
-            margin-top: 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinay Babu Gorantla - Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav {
+      background-color: #0366d6;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a:hover { text-decoration: underline; }
+    .header {
+      padding: 50px 20px;
+      text-align: center;
+      background: linear-gradient(120deg, #0366d6, #003f7f);
+      color: white;
+    }
+    .header h1 { margin: 0; font-size: 2.5rem; }
+    .header p { font-size: 1.2rem; margin: 10px 0; }
+    .btn {
+      background: white;
+      color: #0366d6;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #e3e3e3; }
+    .section { display: none; padding: 40px; }
+    .active { display: block; }
+    h2 { color: #333; }
+    .project-list { list-style: none; padding: 0; }
+    .project-list li {
+      margin-bottom: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .project-list li:hover { transform: scale(1.02); }
+    .project-list a {
+      text-decoration: none;
+      color: #0366d6;
+      font-weight: bold;
+    }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
+    .skills li {
+      list-style: none;
+      background: #0366d6;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .contact-form {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%; padding: 10px; margin: 8px 0;
+      border: 1px solid #ccc; border-radius: 8px;
+    }
+    .dark-mode { background: #1e1e1e; color: #ddd; }
+    .dark-mode nav { background: #111; }
+    .dark-mode .project-list li { background: #2a2a2a; }
+    .toggle-btn { position: fixed; top: 15px; right: 15px; }
+  </style>
 </head>
 <body>
+  <div class="header">
+    <h1>Vinay Babu Gorantla</h1>
+    <p>Machine Learning & MLOps Engineer | Generative AI Specialist</p>
+    <a href="docs/VinayBabuGorantla_Resume.pdf" target="_blank">📄 Download Resume</a>
+    <a href="docs/VinayBabuGorantla_CoverLetter.pdf" target="_blank">📑 View Cover Letter</a>
 
-    <div class="header">
-        <h1>Vinay Babu Gorantla</h1>
-        <p>Welcome to my portfolio! <strong>Note: This portfolio is currently being updated.</strong></p>
+  </div>
+
+  <nav>
+    <a onclick="showTab('home')">Home</a>
+    <a onclick="showTab('mlops')">MLOps</a>
+    <a onclick="showTab('generativeAI')">Generative AI</a>
+    <a onclick="showTab('about')">About</a>
+    <a onclick="showTab('contact')">Contact</a>
+  </nav>
+  <button class="btn toggle-btn" onclick="toggleDarkMode()">🌙</button>
+
+  <div id="home" class="section active">
+    <h2>About Me</h2>
+    <p>I’m a <strong>Machine Learning & MLOps Engineer</strong> with expertise in building scalable AI systems, specializing in <strong>Generative AI, LLMs, and full-stack ML pipelines</strong>. I bring hands-on experience with LangChain, LangGraph, LangSmith, OpenAI, Hugging Face, Groq, FastAPI, Docker, MLflow, and DVC.</p>
+    <p>I excel at transforming research models into <strong>production-grade, cloud-ready applications</strong> that deliver business value.</p>
+  </div>
+
+  <div id="mlops" class="section">
+    <h2>MLOps Projects</h2>
+    <ul class="project-list">
+      <li><a href="https://github.com/VinayBabuGorantla/Electric-Power-Consumption" target="_blank">Household Power Forecasting</a><p>LSTM time series forecasting with MLflow, DVC, Docker, and CI/CD automation.</p></li>
+      <li><a href="https://github.com/VinayBabuGorantla/IMDB-Sentiment-Classification" target="_blank">IMDB Sentiment Classification</a><p>Movie review sentiment analysis with Flask app, Docker, and CI pipeline.</p></li>
+    </ul>
+  </div>
+
+  <div id="generativeAI" class="section">
+    <h2>Generative AI Projects</h2>
+    <ul class="project-list">
+      <li><a href="https://github.com/VinayBabuGorantla/PDF-Genie" target="_blank">📑 PDF Genie</a><p>LLM-powered PDF ingestion & summarization with RAG pipelines using LangChain + ChromaDB.</p></li>
+      <li><a href="https://github.com/VinayBabuGorantla/Log-Intel" target="_blank">⚡ Log Intel</a><p>Log analysis assistant leveraging LLMs for predictive insights and anomaly detection.</p></li>
+    </ul>
+  </div>
+
+  <div id="about" class="section">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>LangChain</li><li>LangGraph</li><li>LangSmith</li><li>FastAPI</li><li>Docker</li>
+      <li>MLflow</li><li>DVC</li><li>ChromaDB</li><li>FAISS</li><li>OpenAI API</li>
+      <li>Hugging Face</li><li>Groq</li><li>Transformers</li><li>Azure</li><li>Databricks</li>
+    </ul>
+  </div>
+
+  <div id="contact" class="section">
+    <h2>Contact Me</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
     </div>
+  </div>
 
-    <nav>
-        <a onclick="showTab('home')">Home</a>
-        <div class="dropdown">
-            <a href="javascript:void(0)">Projects</a>
-            <div class="dropdown-content">
-                <a href="javascript:void(0)" onclick="showTab('mlops')">MLOps</a>
-                <a href="javascript:void(0)" onclick="showTab('generativeAI')">Generative AI</a>
-            </div>
-        </div>
-        <a onclick="showTab('about')">About</a>
-    </nav>
-
-    <div id="home" class="section active">
-        <h2>Home</h2>
-        <p>I am a passionate <strong>Machine Learning Engineer</strong> with strong <strong>MLOps expertise</strong>, actively building innovative <strong>Generative AI applications</strong> using cutting-edge LLM frameworks.</p>
-        <p>With hands-on experience in deploying scalable ML pipelines and exploring the power of <strong>Large Language Models (LLMs)</strong>, I specialize in solving real-world problems through automation, data-driven intelligence, and conversational AI.</p>
-        
-        <!-- Scrollable container for Generative AI and Traditional ML sections -->
-        <div class="scrollable-container">
-            <!-- Generative AI column -->
-            <div class="column">
-                <h3>🤖 Generative AI & LLM Development Lifecycle</h3>
-                <p>I design and build end-to-end Generative AI applications using large language models and modern frameworks. Here's an overview of how I approach Generative AI projects:</p>
-                <ul class="project-list">
-                    <li><strong>Problem Scoping & Use Case Design:</strong> Identified suitable LLM-based solutions for document summarization, Q&A, chatbot interfaces, and log analysis.</li>
-                    <li><strong>Data Ingestion & Chunking:</strong> Extracted and chunked text from various sources like PDFs, text files, and logs using LangChain loaders and custom scripts.</li>
-                    <li><strong>Embedding & Vector Store Management:</strong> Converted text to embeddings using OpenAI/Hugging Face models and stored them in vector DBs like FAISS or Chroma for semantic retrieval.</li>
-                    <li><strong>Prompt Engineering & Templates:</strong> Designed and iterated prompts for accuracy, relevance, and safety using LangChain prompt templates and chains.</li>
-                    <li><strong>LLM Orchestration:</strong> Integrated external and open-source models (e.g., OpenAI, LLaMA) using LangChain, Hugging Face, and Transformers libraries.</li>
-                    <li><strong>RAG (Retrieval-Augmented Generation):</strong> Built robust RAG pipelines to combine user input with context from knowledge bases before sending to the LLM.</li>
-                    <li><strong>Tool & Agent Integration:</strong> Enabled agents with tools for dynamic response generation, document analysis, and multi-step reasoning.</li>
-                    <li><strong>App Interface Development:</strong> Built Streamlit and Flask-based frontends for user-friendly interaction with AI systems.</li>
-                    <li><strong>Deployment & Optimization:</strong> Packaged apps with Docker and deployed them on cloud platforms or local environments with GPU acceleration.</li>
-                    <li><strong>Security & Cost Control:</strong> Implemented API key management, usage limits, and fallback mechanisms to control LLM cost and reliability.</li>
-                </ul>
-            </div>
-
-            <!-- Traditional ML/MLOps column -->
-            <div class="column">
-                <h3>🧠 Traditional ML/MLOps Lifecycle</h3>
-                <p>I specialize in all stages of the MLOps pipeline, from data collection and preprocessing to model deployment and monitoring. Here’s an overview of my approach:</p>
-                <ul class="project-list">
-                    <li><strong>Data Collection & Acquisition:</strong> Sourced data from APIs, databases, cloud storage, and web scraping.</li>
-                    <li><strong>Data Cleaning & Preprocessing:</strong> Addressed missing values, outliers, and inconsistencies while scaling and encoding features.</li>
-                    <li><strong>Exploratory Data Analysis (EDA):</strong> Analyzed distributions and relationships using Pandas, Seaborn, and Matplotlib.</li>
-                    <li><strong>Feature Engineering:</strong> Created impactful features and applied dimensionality reduction techniques.</li>
-                    <li><strong>Model Building & Training:</strong> Trained ML models using Scikit-learn, XGBoost, TensorFlow, and Keras.</li>
-                    <li><strong>Model Deployment & Integration:</strong> Deployed models using FastAPI, Docker, and cloud platforms with CI/CD integration.</li>
-                    <li><strong>Model Monitoring & Maintenance:</strong> Monitored performance and implemented auto-retraining mechanisms.</li>
-                    <li><strong>Reporting & Dashboarding:</strong> Built interactive dashboards using Power BI, Plotly, and Streamlit.</li>
-                    <li><strong>Collaboration & Documentation:</strong> Led agile meetings and ensured code maintainability through thorough documentation.</li>
-                    <li><strong>Continuous Learning & Research:</strong> Regularly explore new ML and AI research to stay at the forefront of the field.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="mlops" class="section">
-        <h2>MLOps Projects</h2>
-        <ul class="project-list">
-            <li>
-                <a href="https://github.com/VinayBabuGorantla/Electric-Power-Consumption" target="_blank">
-                    Household Electric Power Consumption - Deep Learning MLOps
-                </a>
-                <p>Time series forecasting using LSTM for household power consumption. Integrated with MLflow for experiment tracking, DVC for versioning, Docker for containerization, and CI/CD using GitHub Actions.</p>
-            </li>
-            <li>
-                <a href="https://github.com/VinayBabuGorantla/IMDB-Sentiment-Classification" target="_blank">
-                    IMDB Sentiment Classification
-                </a>
-                <p>An NLP project using LSTM/GRU to classify movie reviews as positive or negative. Includes Flask app, DVC, Docker, and CI integration.</p>
-            </li>
-            <li>
-                <a href="https://github.com/VinayBabuGorantla/Boston-Housing-Dataset" target="_blank">
-                    Boston Housing Price Prediction
-                </a>
-                <p>A complete regression pipeline for predicting housing prices using MLOps principles such as modular programming, version control, and pipeline automation.</p>
-            </li>
-            <li>
-                <a href="https://github.com/VinayBabuGorantla/Breast-Cancer-Prediction-Wisconsin-Dataset" target="_blank">
-                    Breast Cancer Prediction (Wisconsin Dataset)
-                </a>
-                <p>An end-to-end MLOps project that predicts whether breast cancer is benign or malignant using various ML tools and deployment best practices.</p>
-            </li>
-            <li>
-                <a href="https://github.com/VinayBabuGorantla/Iris-Species-Classification" target="_blank">
-                    Iris Species Classification
-                </a>
-                <p>A machine learning classification project using Scikit-learn for predicting iris flower species, with modular code and deployment-ready pipeline.</p>
-            </li>
-        </ul>
-    </div>
-
-    <div id="generativeAI" class="section">
-        <h2>Generative AI & LLM Projects</h2>
-        <p>Exploring Generative AI using LangChain components, OpenAI models, and models from Hugging Face hub.</p>
-        <ul class="project-list">
-            <li>
-                <a href="https://github.com/VinayBabuGorantla/PDF-Genie" target="_blank">
-                    PDF Genie - Generative AI for Document Ingestion
-                </a>
-                <p>An innovative project that uses Generative AI for processing and extracting information from PDFs. Check out the repo for more details.</p>
-            </li>
-            <li>
-                <a href="https://github.com/VinayBabuGorantla/Log-Intel" target="_blank">
-                    Log Intel - Log File Analysis & Prediction
-                </a>
-                <p>An advanced log analysis platform using LLM, which parses logs and provides performance insights, error detection, and proactive issue prediction.</p>
-            </li>
-        </ul>
-    </div>
-
-    <div id="about" class="section">
-        <h2>Skills</h2>
-        <ul class="skills">
-            <li><strong>Languages & Tools:</strong> Python, SQL, T-SQL, DAX, Git, Docker, Kubernetes</li>
-            <li><strong>Machine Learning:</strong> Scikit-learn, TensorFlow, Keras, XGBoost, LightGBM</li>
-            <li><strong>Deep Learning:</strong> ANN, CNN, RNN, LSTM, Transformers</li>
-            <li><strong>NLP:</strong> NLTK, spaCy, Word Embeddings</li>
-            <li><strong>MLOps:</strong> Flask, Streamlit, CI/CD, MLflow, DVC</li>
-            <li><strong>Generative AI:</strong> Large Language Models (LLMs), LangChain, Prompt Engineering, RAG (Retrieval-Augmented Generation), OpenAI API, Hugging Face, Text Generation, Conversational AI</li>
-            <li><strong>Visualization:</strong> Matplotlib, Seaborn, Power BI</li>
-            <li><strong>Cloud Platforms:</strong> Azure ML Studio, Azure Data Factory, Synapse, Databricks, Data Lake Storage</li>
-        </ul>
-    
-        <h2>Contact</h2>
-        <p>If you would like to get in touch, feel free to <a href="mailto:vinaybabu.gorantla@gmail.com">email me</a>.</p>
-    </div>
-    
-
-    <script>
-        function showTab(tabId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => section.classList.remove('active'));
-            const activeTab = document.getElementById(tabId);
-            activeTab.classList.add('active');
-        }
-    </script>
-
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
