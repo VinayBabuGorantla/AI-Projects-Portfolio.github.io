@@ -133,6 +133,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -1px;
     }
 
     .nav-links {
@@ -449,6 +450,78 @@
       font-size: 1rem;
       opacity: 0.8;
       font-weight: 500;
+    }
+
+    /* Bento Grid Styles */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bento-item {
+      background: var(--light-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    body.dark-mode .bento-item {
+      background: var(--dark-card);
+    }
+
+    .bento-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+    }
+
+    .bento-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .bento-item.medium {
+      grid-column: span 2;
+    }
+
+    .azure-focus {
+      background: linear-gradient(135deg, rgba(0, 120, 212, 0.1) 0%, rgba(0, 120, 212, 0.2) 100%);
+      border: 1px solid rgba(0, 120, 212, 0.3);
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    @media (max-width: 992px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-item.large,
+      .bento-item.medium {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
     }
 
     /* Projects Grid */
@@ -851,6 +924,195 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Timeline Styles */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 31px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--glass-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 80px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      border: 4px solid var(--light-bg);
+      z-index: 1;
+      box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+    }
+
+    body.dark-mode .timeline-dot {
+      border-color: var(--dark-bg);
+    }
+
+    .timeline-date {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #667eea;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .timeline-content {
+      background: var(--light-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 30px;
+      transition: var(--transition);
+    }
+
+    body.dark-mode .timeline-content {
+      background: var(--dark-card);
+    }
+
+    .timeline-item:hover .timeline-content {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+    }
+
+    .timeline-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-content h4 {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 15px;
+    }
+
+    .timeline-content ul {
+      list-style: none;
+    }
+
+    .timeline-content li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      opacity: 0.85;
+    }
+
+    .timeline-content li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+    }
+
+    /* Expertise Cards */
+    .expertise-workflow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .expertise-card {
+      background: var(--light-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode .expertise-card {
+      background: var(--dark-card);
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    }
+
+    .expertise-card.highlighted {
+      border: 2px solid #667eea;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.1) 100%);
+    }
+
+    .expertise-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--primary-gradient);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      transform: rotate(-10deg);
+      transition: var(--transition);
+    }
+
+    .expertise-card:hover .expertise-icon {
+      transform: rotate(0deg) scale(1.1);
+    }
+
+    .expertise-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .expertise-card p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .expertise-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .expertise-tools span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 20px;
+      color: #667eea;
+    }
+
+    body.dark-mode .expertise-tools span {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-light);
+    }
   </style>
 </head>
 
@@ -865,6 +1127,8 @@
     <div class="nav-logo">VBG</div>
     <ul class="nav-links">
       <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#expertise-services" class="nav-link">Expertise</a></li>
       <li><a href="#projects" class="nav-link">Projects</a></li>
       <li><a href="#skills" class="nav-link">Skills</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -876,17 +1140,19 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
+    <div id="particles-js"></div>
     <div class="hero-content">
       <h1>Vinay Babu Gorantla</h1>
       <div class="tagline">
         <span class="typing-text"></span>
       </div>
       <p class="subtitle">
-        Transforming research models into production-grade, cloud-ready AI applications that deliver business value
+        Machine Learning & MLOps Engineer with 7+ years of experience. Specializing in **Azure-native AI solutions**,
+        Generative AI, and production-grade MLOps pipelines.
       </p>
       <div class="hero-buttons">
         <a href="docs/VinayBabuGorantla_Resume.pdf" target="_blank" class="btn btn-primary">
-          <i class="fas fa-download"></i> Download Resume
+          <i class="fas fa-file-pdf"></i> View Resume
         </a>
         <a href="#projects" class="btn btn-secondary">
           <i class="fas fa-rocket"></i> View Projects
@@ -901,8 +1167,11 @@
           title="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="mailto:vinaybabugorantla@gmail.com" class="social-link" title="Email">
+        <a href="mailto:Vinayc.gorantla@gmail.com" class="social-link" title="Email">
           <i class="fas fa-envelope"></i>
+        </a>
+        <a href="tel:+447780310625" class="social-link" title="Phone">
+          <i class="fas fa-phone"></i>
         </a>
       </div>
     </div>
@@ -911,24 +1180,92 @@
     </div>
   </section>
 
-  <!-- Stats Section -->
+  <!-- Stats Section (Bento Grid) -->
   <section>
-    <div class="stats fade-in">
-      <div class="stat-card">
-        <div class="stat-number" data-target="10">0</div>
-        <div class="stat-label">ML Projects</div>
+    <div class="bento-grid fade-in">
+      <div class="bento-item stat-card large">
+        <div class="stat-number" data-target="7">0</div>
+        <div class="stat-label">Years Experience</div>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">Expertise in end-to-end ML systems and production
+          MLOps.</p>
       </div>
-      <div class="stat-card">
+      <div class="bento-item stat-card">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-label">Azure AI Projects</div>
+      </div>
+      <div class="bento-item stat-card">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">Commits</div>
+      </div>
+      <div class="bento-item stat-card medium azure-focus">
+        <div class="stat-number">80%</div>
+        <div class="stat-label">Azure Expertise</div>
+        <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">Azure ML, AI Foundry, Databricks, ADF</p>
+      </div>
+      <div class="bento-item stat-card">
         <div class="stat-number" data-target="20">0</div>
         <div class="stat-label">Technologies</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number" data-target="4">0</div>
-        <div class="stat-label">Specializations</div>
+    </div>
+  </section>
+
+  <!-- Expertise & Services Section -->
+  <section id="expertise-services">
+    <div class="section-header fade-in">
+      <h2>My Expertise</h2>
+      <p>Turning raw data into intelligent, real-world business solutions</p>
+    </div>
+    <div class="expertise-workflow fade-in">
+      <div class="expertise-card">
+        <div class="expertise-icon"><i class="fas fa-database"></i></div>
+        <h3>Data Orchestration</h3>
+        <p>Mining insights from raw, unstructured data using enterprise pipelines. Designing scalable ETL workflows that
+          serve as the fuel for intelligent systems.</p>
+        <div class="expertise-tools">
+          <span>Azure Data Factory</span>
+          <span>PySpark</span>
+          <span>SQL Optimization</span>
+          <span>AWS S3</span>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number" data-target="100">0</div>
-        <div class="stat-label">Commits</div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Analytical Intelligence</h3>
+        <p>Bridging the gap between data and decisions. Applying rigorous statistical analysis and hypothesis testing to
+          uncover hidden patterns and business value.</p>
+        <div class="expertise-tools">
+          <span>Statistics</span>
+          <span>EDA</span>
+          <span>Power BI</span>
+          <span>Numpy/Pandas</span>
+        </div>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-icon"><i class="fas fa-brain"></i></div>
+        <h3>Predictive Engineering</h3>
+        <p>Building the foundation with traditional ML. From regression to time-series forecasting, engineering
+          production-grade models that predict and prevent.</p>
+        <div class="expertise-tools">
+          <span>Azure ML</span>
+          <span>XGBoost</span>
+          <span>LSTM</span>
+          <span>SageMaker</span>
+        </div>
+      </div>
+
+      <div class="expertise-card highlighted">
+        <div class="expertise-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Generative Frontiers</h3>
+        <p>Leading the shift to GenAI. Orchestrating RAG pipelines, Agentic AI, and LLM applications that reason,
+          summarize, and solve complex problems at scale.</p>
+        <div class="expertise-tools">
+          <span>Azure OpenAI</span>
+          <span>LangGraph</span>
+          <span>Azure AI Search</span>
+          <span>RAGAS</span>
+        </div>
       </div>
     </div>
   </section>
@@ -937,28 +1274,74 @@
   <section id="projects">
     <div class="section-header fade-in">
       <h2>Featured Projects</h2>
-      <p>Showcasing production-ready ML systems and AI applications</p>
+      <p>Showcasing production-ready ML systems and enterprise AI applications</p>
     </div>
 
     <div class="projects-filter fade-in">
       <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="azure">Azure ML</button>
       <button class="filter-btn" data-filter="genai">Generative AI</button>
       <button class="filter-btn" data-filter="mlops">MLOps</button>
     </div>
 
     <div class="projects-grid">
-      <div class="project-card fade-in" data-category="genai">
-        <img src="assets/images/pdf-genie.png" alt="PDF Genie Project" class="project-image">
+      <div class="project-card fade-in" data-category="azure mlops">
+        <img src="azure_databricks_mlops_1772536229674.png" alt="Azure Databricks MLOps" class="project-image">
         <div class="project-content">
-          <h3 class="project-title">📑 PDF Genie</h3>
+          <h3 class="project-title">💎 Azure Databricks MLOps</h3>
           <p class="project-description">
-            LLM-powered PDF ingestion & summarization with RAG pipelines using LangChain + ChromaDB
+            End-to-end MLOps pipeline using Databricks, MLflow, and Azure DevOps. Implements automated traffic
+            management and model lineage.
           </p>
           <div class="project-tags">
+            <span class="tag">Databricks</span>
+            <span class="tag">MLflow</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">PySpark</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/VinayBabuGorantla" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-category="mlops">
+        <img src="aws_mlops_pipeline_1772536215843.png" alt="AWS MLOps Pipeline" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">🚀 Enterprise AWS MLOps</h3>
+          <p class="project-description">
+            Advanced deployment strategies (Blue/Green, Canary) using SageMaker, Docker, and GitHub Actions with
+            automated retraining.
+          </p>
+          <div class="project-tags">
+            <span class="tag">SageMaker</span>
+            <span class="tag">Docker</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Terraform</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/VinayBabuGorantla" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-category="genai azure">
+        <img src="assets/images/pdf-genie.png" alt="PDF Genie Project" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">📑 Azure GenAI Assistant</h3>
+          <p class="project-description">
+            RAG pipeline using Azure OpenAI, LangChain, and Azure AI Search for enterprise document orchestration and
+            retrieval.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Azure OpenAI</span>
             <span class="tag">LangChain</span>
+            <span class="tag">Azure AI Search</span>
             <span class="tag">RAG</span>
-            <span class="tag">ChromaDB</span>
-            <span class="tag">FastAPI</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/VinayBabuGorantla/PDF-Genie" target="_blank" class="project-link">
@@ -968,39 +1351,18 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-category="genai">
-        <img src="assets/images/log-intel.png" alt="Log Intel Project" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">⚡ Log Intel</h3>
-          <p class="project-description">
-            Log analysis assistant leveraging LLMs for predictive insights and anomaly detection
-          </p>
-          <div class="project-tags">
-            <span class="tag">LLMs</span>
-            <span class="tag">NLP</span>
-            <span class="tag">Analytics</span>
-            <span class="tag">Python</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/VinayBabuGorantla/Log-Intel" target="_blank" class="project-link">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card fade-in" data-category="mlops">
+      <div class="project-card fade-in" data-category="mlops azure">
         <img src="assets/images/power-forecast.png" alt="Power Forecasting Project" class="project-image">
         <div class="project-content">
-          <h3 class="project-title">⚡ Household Power Forecasting</h3>
+          <h3 class="project-title">⚡ Azure ML Power Forecast</h3>
           <p class="project-description">
-            LSTM time series forecasting with MLflow, DVC, Docker, and CI/CD automation
+            LSTM time series forecasting deployed as a scalable service on Azure ML with DVC for data versioning.
           </p>
           <div class="project-tags">
+            <span class="tag">Azure ML</span>
             <span class="tag">LSTM</span>
-            <span class="tag">MLflow</span>
             <span class="tag">DVC</span>
-            <span class="tag">Docker</span>
+            <span class="tag">FastAPI</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/VinayBabuGorantla/Electric-Power-Consumption" target="_blank"
@@ -1010,26 +1372,77 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="project-card fade-in" data-category="mlops">
-        <img src="assets/images/sentiment-analysis.png" alt="IMDB Sentiment Analysis Project" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">🎬 IMDB Sentiment Classification</h3>
-          <p class="project-description">
-            Movie review sentiment analysis with Flask app, Docker, and CI pipeline
-          </p>
-          <div class="project-tags">
-            <span class="tag">NLP</span>
-            <span class="tag">Flask</span>
-            <span class="tag">Docker</span>
-            <span class="tag">CI/CD</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/VinayBabuGorantla/IMDB-Sentiment-Classification" target="_blank"
-              class="project-link">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
+  <!-- Education Section -->
+  <section id="education">
+    <div class="section-header fade-in">
+      <h2>Education</h2>
+    </div>
+    <div class="skills-container">
+      <div class="skill-category fade-in" style="text-align: center;">
+        <h3><i class="fas fa-graduation-cap"></i> B.Tech Computer Science and Engineering</h3>
+        <p><strong>VIGNAN’s University</strong> | Aug 2010 - Apr 2014</p>
+        <p style="opacity: 0.8; margin-top: 10px;">Foundation in Algorithms, Data Structures, and Software Engineering
+          Principles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="section-header fade-in">
+      <h2>Professional Experience</h2>
+      <p>A journey through Machine Learning, Data Science, and Software Engineering</p>
+    </div>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Feb 2022 - Present</div>
+        <div class="timeline-content">
+          <h3>Machine Learning Engineer (Contract)</h3>
+          <h4>VM2R Services LTD | Bristol, UK</h4>
+          <ul>
+            <li>Designed and implemented end-to-end ML pipelines for classification, regression, and time-series
+              forecasting using Scikit-learn, XGBoost, and TensorFlow.</li>
+            <li>Built scalable data ingestion and feature engineering workflows in **Azure ML**, enhancing model
+              performance across operational use cases.</li>
+            <li>Developed Generative AI and **RAG solutions** using **Azure OpenAI**, **Azure AI Foundry**, LangChain,
+              and LangGraph.</li>
+            <li>Implemented CI/CD workflows using **Azure DevOps** and GitHub Actions for automated deployment and
+              monitoring.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Nov 2018 - Jan 2022</div>
+        <div class="timeline-content">
+          <h3>Data Scientist</h3>
+          <h4>WIPRO Technologies | Bangalore, India</h4>
+          <ul>
+            <li>Led end-to-end data science projects, transforming raw enterprise data into actionable insights.</li>
+            <li>Engineered optimized data pipelines for feature engineering and statistical analysis, ensuring high data
+              consistency.</li>
+            <li>Applied regression and time-series forecasting to predict operational metrics and guide data-driven
+              interventions.</li>
+            <li>Developed interactive **Power BI dashboards** to visualize trends and KPIs for leadership teams.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Jun 2016 - Nov 2018</div>
+        <div class="timeline-content">
+          <h3>Software Engineer</h3>
+          <h4>HCL Technologies | Chennai, India</h4>
+          <ul>
+            <li>Managed IT Service Management processes (Incident, Change, Problem Management) using BMC Remedy.</li>
+            <li>Optimized complex SQL queries for issue diagnostics and reporting, improving resolution turnaround time.
+            </li>
+            <li>Supported deployment and release cycles across test and production environments.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1039,13 +1452,22 @@
   <section id="skills">
     <div class="section-header fade-in">
       <h2>Technical Expertise</h2>
-      <p>Comprehensive skill set across the ML/AI technology stack</p>
+      <p>Comprehensive skill set with a primary focus on the **Azure AI & Data Ecosystem**</p>
     </div>
 
     <div class="skills-container">
       <div class="skill-category fade-in">
-        <h3><i class="fas fa-brain"></i> Generative AI & LLMs</h3>
+        <h3><i class="fas fa-brain"></i> Generative AI & Azure AI</h3>
         <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Azure OpenAI & AI Foundry</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 95%"></div>
+            </div>
+          </div>
           <div class="skill-item">
             <div class="skill-header">
               <span class="skill-name">LangChain, LangGraph, LangSmith</span>
@@ -1057,40 +1479,49 @@
           </div>
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">OpenAI, Anthropic, Groq, Gemini</span>
+              <span class="skill-name">RAG Pipelines & Agentic AI</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Azure AI Search, ChromaDB, Pinecone</span>
               <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
               <div class="skill-progress" style="--progress: 85%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">RAG & Prompt Engineering</span>
-              <span class="skill-level">Expert</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 90%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Vector Stores (ChromaDB, FAISS)</span>
-              <span class="skill-level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 80%"></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="skill-category fade-in">
-        <h3><i class="fas fa-robot"></i> Machine Learning & NLP</h3>
+        <h3><i class="fas fa-cogs"></i> MLOps (Azure & Open Source)</h3>
         <div class="skills-list">
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">TensorFlow, Keras</span>
+              <span class="skill-name">Azure ML & Azure DevOps</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">MLflow & DVC</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Docker & GitHub Actions</span>
               <span class="skill-level">Advanced</span>
             </div>
             <div class="skill-bar">
@@ -1099,95 +1530,77 @@
           </div>
           <div class="skill-item">
             <div class="skill-header">
-              <span class="skill-name">Transformers (BERT, T5, LSTM)</span>
-              <span class="skill-level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 80%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Scikit-learn, XGBoost</span>
-              <span class="skill-level">Expert</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 90%"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-category fade-in">
-        <h3><i class="fas fa-cogs"></i> MLOps & Deployment</h3>
-        <div class="skills-list">
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Docker, Kubernetes</span>
-              <span class="skill-level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 85%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">MLflow, DVC</span>
-              <span class="skill-level">Expert</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 90%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">GitHub Actions, CI/CD</span>
-              <span class="skill-level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 85%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">FastAPI, Flask, Streamlit</span>
-              <span class="skill-level">Expert</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 90%"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-category fade-in">
-        <h3><i class="fas fa-cloud"></i> Cloud & Data Engineering</h3>
-        <div class="skills-list">
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">Azure ML, Synapse, Data Factory</span>
-              <span class="skill-level">Advanced</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 80%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">PySpark, SQL, Pandas</span>
-              <span class="skill-level">Expert</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="--progress: 90%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">AWS SageMaker, Databricks</span>
+              <span class="skill-name">AWS SageMaker (20% Focus)</span>
               <span class="skill-level">Intermediate</span>
             </div>
             <div class="skill-bar">
               <div class="skill-progress" style="--progress: 70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category fade-in">
+        <h3><i class="fas fa-database"></i> Data & Cloud Engineering</h3>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Azure Data Factory & Synapse</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Azure Databricks & PySpark</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">SQL (Advanced Optimization)</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 95%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category fade-in">
+        <h3><i class="fas fa-robot"></i> Core ML & Analytics</h3>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Scikit-learn, XGBoost, LightGBM</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">TensorFlow, Keras, Transformers</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Statistical Analysis & Power BI</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress: 90%"></div>
             </div>
           </div>
         </div>
@@ -1256,8 +1669,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Vinay Babu Gorantla. All rights reserved.</p>
-    <p style="margin-top: 10px; opacity: 0.6;">Built with passion for ML & AI</p>
+    <p>&copy; 2026 Vinay Babu Gorantla. All rights reserved.</p>
+    <p style="margin-top: 10px; opacity: 0.6;">Built with passion for Azure ML & AI</p>
   </footer>
 
   <script>
@@ -1270,10 +1683,10 @@
 
     // Typing Animation
     const phrases = [
-      'Machine Learning Engineer',
-      'MLOps Specialist',
+      'Azure AI & ML Engineer',
+      'Azure MLOps Specialist',
       'Generative AI Expert',
-      'LLM Application Developer'
+      'LLM/RAG Application Developer'
     ];
     let phraseIndex = 0;
     let charIndex = 0;
@@ -1441,6 +1854,44 @@
         formMessage.style.display = 'none';
       }, 5000);
     });
+    // Simple Particle System
+    function initParticles() {
+      const container = document.getElementById('particles-js');
+      const particleCount = 20;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 5 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = 'rgba(255, 255, 255, 0.3)';
+        particle.style.borderRadius = '50%';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+
+        particle.style.animation = `float ${duration}s linear infinite`;
+        particle.style.animationDelay = `${delay}s`;
+
+        container.appendChild(particle);
+      }
+    }
+
+    // Add float animation keyframes
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes float {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        10% { opacity: 0.5; }
+        90% { opacity: 0.5; }
+        100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    initParticles();
   </script>
 </body>
 
