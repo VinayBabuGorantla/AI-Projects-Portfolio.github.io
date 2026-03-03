@@ -1801,7 +1801,10 @@
 
     // Counter Animation
     function animateCounter(element) {
-      const target = parseInt(element.getAttribute('data-target'));
+      const targetAttr = element.getAttribute('data-target');
+      if (!targetAttr) return;
+
+      const target = parseInt(targetAttr);
       const duration = 2000;
       const increment = target / (duration / 16);
       let current = 0;
@@ -1826,7 +1829,7 @@
       });
     }, { threshold: 0.5 });
 
-    document.querySelectorAll('.stats').forEach(el => statsObserver.observe(el));
+    document.querySelectorAll('.bento-grid').forEach(el => statsObserver.observe(el));
 
     // Project Filtering
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -1921,6 +1924,7 @@
       }
     `;
     document.head.appendChild(style);
+
 
     initParticles();
   </script>
